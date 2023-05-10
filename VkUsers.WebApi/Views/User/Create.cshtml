@@ -1,0 +1,167 @@
+﻿@model VkUsers.Application.Users.Queries.GetUserList.GetListVm;
+
+
+
+<div>
+    <form method="POST" asp-controller="User" asp-action="Create" enctype="multipart/form-data">
+        <h2>Регистрация</h2>
+        <div class="formItems">
+            <div class="Inlines">
+                <div class="leftSide">
+                    <div class="Item">
+                        <label>Логин</label>
+                        <input asp-for="@Model.CreateUser.login" type="text" />
+                    </div>
+                    <div class="Item">
+                        <label>Пароль</label>
+                        <input asp-for="@Model.CreateUser.password"></input>
+                    </div>
+                    
+                </div>
+
+                <div class="rightSide">
+                    <div class="Item">
+                        <label>Группа</label>
+                        <select asp-for="@Model.CreateUser.groupId">
+                            @{
+                                foreach (var dep in Model.Groups)
+                                {
+                                    <option value="@dep.id">@dep.code</option>
+                                }
+                            }
+                        </select>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="Blocked">
+                <div class="ItemBlock BlockButt">
+
+                    <div>
+                        <button class="createbtn"><input type="submit" /></button>
+
+
+                    </div>
+                </div>
+            </div>
+    </form>
+
+</div>
+
+<style>
+
+    .formItems {
+        background-color: #242424;
+        border: none;
+        border-radius: 30px;
+        width: 45%;
+        min-height: 30%;
+        margin: 50px auto;
+        font-family: TTtravelsRegular;
+    }
+
+    .canc {
+        margin-left: 45%;
+    }
+
+    .leftSide {
+        margin: 40%, auto;
+    }
+
+    .formItems h2 {
+        color: white;
+        margin-left: 30px;
+        padding-top: 20px;
+    }
+
+    .Inlines {
+        display: flex;
+        flex-direction: row;
+        margin-left: 20%;
+        padding-top: 10%;
+        gap: 20px;
+        color: white;
+    }
+
+
+    .Item label, input {
+        display: block;
+    }
+
+    .Item {
+        margin-bottom: 40px;
+    }
+
+        .Item:last-child {
+            width: 190px;
+        }
+
+    input {
+        border: none;
+        border-bottom: 1px solid white;
+        background-color: transparent;
+        color: inherit;
+        outline: none;
+        text-decoration: none;
+    }
+
+    .ItemBlock input, select {
+        display: block;
+        resize: vertical;
+    }
+
+    .ItemBlock {
+        margin-bottom: 40px;
+    }
+
+    textarea {
+        background-color: #5F5F5F;
+        border-radius: 6px;
+        width: 637px;
+        height: 223px;
+    }
+
+    select {
+        background-color: #5F5F5F;
+        color: black;
+        height: 30px;
+        border-radius: 6px;
+    }
+
+    .BlockButt {
+    }
+
+        .BlockButt button {
+            padding: 10px 30px;
+            border-radius: 20px;
+            font-size: 13px;
+            border: none;
+            color: white;
+        }
+
+    .createbtn {
+        background-color: #9F2525;
+        text-decoration: none;
+        margin-left: 40%;
+        margin-bottom: 10px;
+    }
+
+    .cancelbth {
+        padding: 10px 30px;
+        border-radius: 20px;
+        font-size: 13px;
+        border: none;
+        color: white;
+        margin: 20px;
+        background-color: #5F5F5F;
+    }
+
+        .cancelbth:hover {
+            box-shadow: 0 0 20px #5F5F5F;
+        }
+
+    .createbtn:hover {
+        box-shadow: 0 0 20px #9F2525;
+    }
+</style>
